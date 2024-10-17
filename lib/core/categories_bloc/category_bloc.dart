@@ -10,24 +10,18 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryStates> {
 
   Future<void> fetchCategories() async {
     try {
-      emit(
-        CategoryStates(
-          categoriesList: [],
-        ),
-      );
+      emit(LoadingState());
 
       final categoriesList = await CategoryRepository().fetchCategories();
 
       emit(
-        CategoryStates(
+        SuccessState(
           categoriesList: categoriesList,
         ),
       );
     } catch (e) {
       emit(
-        CategoryStates(
-          categoriesList: [],
-        ),
+        FailureState(),
       );
     }
   }

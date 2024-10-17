@@ -15,6 +15,8 @@ class CategoryRepository {
         categories.add(response.data[i].toString());
       }
 
+      await Future.delayed(const Duration(seconds: 3));
+
       return categories;
     } catch (e) {
       debugPrint(e.toString());
