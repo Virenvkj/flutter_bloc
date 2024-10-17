@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_ex/core/counter_bloc/counter_bloc.dart';
 import 'package:flutter_bloc_ex/core/counter_bloc/counter_event.dart';
 import 'package:flutter_bloc_ex/core/counter_bloc/counter_state.dart';
+import 'package:flutter_bloc_ex/presentation/categories_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -34,6 +35,15 @@ class HomePage extends StatelessWidget {
                     child: const Icon(Icons.remove))
               ],
             ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const CategoriesScreen(),
+                ),
+              ),
+              child: const Text("Categories screen"),
+            )
           ],
         );
       }),
